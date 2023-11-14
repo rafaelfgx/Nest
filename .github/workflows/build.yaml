@@ -1,0 +1,28 @@
+name: build
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Node Setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
+          check-latest: true
+
+      - name: Node Publish
+        run: |
+          cd source
+          npm run restore
+          npm run publish
+
+      - name: Artifact Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: app
+          path: source/dist

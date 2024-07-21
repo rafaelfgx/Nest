@@ -1,0 +1,14 @@
+services:
+    app:
+        image: app
+        container_name: app
+        restart: always
+        build:
+            context: .
+            dockerfile: dockerfile
+        networks:
+            - network
+        ports:
+            - 3000:3000
+networks:
+    network:

@@ -1,0 +1,12 @@
+# docker compose up --detach --build --force-recreate --remove-orphans
+
+name: nest
+services:
+    app:
+        image: app
+        container_name: app
+        build:
+            context: .
+            dockerfile: dockerfile
+        ports:
+            - "4000:3000"

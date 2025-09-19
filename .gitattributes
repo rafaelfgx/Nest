@@ -1,0 +1,3 @@
+﻿﻿* text=auto
+*.js diff=js
+*.ts diff=ts
